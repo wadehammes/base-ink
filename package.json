@@ -12,7 +12,6 @@
     "grunt-sass"           : "*",
     "assemble"             : "*",
     "grunt-mailgun"        : "*",
-    "grunt-litmus"         : "0.1.8",
     "grunt-contrib-watch"  : "*",
     "grunt-premailer"      : "0.2.5",
     "grunt-contrib-htmlmin": "0.3.0",

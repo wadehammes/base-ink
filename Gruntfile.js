@@ -64,25 +64,14 @@ module.exports = function(grunt) {
         tasks: ['default']
       },
 
-      //- Test via Litmus
-      litmus: {
-        options: {
-          username: '',
-          password: '',
-          url: '',
-          clients: ['gmailnew', 'ffgmailnew', 'chromegmailnew']
-        },
-        your_target: {
-          src: ['dist/*']
-        },
-      },
-
       //- Send email through Mailgun
       mailgun: {
         mailer: {
           options: {
             key: '',
             sender: '',
+            // To test with Litmus, add your Static Test Address
+            // from Limus below, found in your Account Settings.
             recipient: '',
             subject: 'TEST: This is a test email'
           },
@@ -93,9 +82,6 @@ module.exports = function(grunt) {
   });
   grunt.loadNpmTasks('assemble');
   grunt.registerTask('default', ['sass','assemble','premailer','htmlmin','watch']);
-
-  // Test with Litmus
-  grunt.registerTask('test', ['litmus']);
 
   // Use grunt send if you want to actually send the email to your inbox
   grunt.registerTask('send', ['mailgun']);
