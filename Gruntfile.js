@@ -11,7 +11,7 @@ module.exports = function(grunt) {
             style: 'expanded'
           },
           files: {
-            'src/css/main.css': 'src/css/scss/main.scss'
+            'src/css/main.css': 'src/scss/main.scss'
           }
         }
       },
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 
       //- Listen for changes on save
       watch: {
-        files: ['src/css/scss/*','src/emails/*','src/layouts/*'],
+        files: ['src/scss/*','src/emails/*','src/layouts/*'],
         tasks: ['default']
       }
 
