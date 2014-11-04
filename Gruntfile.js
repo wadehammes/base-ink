@@ -64,8 +64,40 @@ module.exports = function(grunt) {
         tasks: ['default']
       }
 
+      //- Test via Litmus
+      litmus: {
+        options: {
+          username: 'design@trackmaven.com',
+          password: 'twopawsup',
+          url: 'https://trackmaven3.litmus.com',
+          clients: ['gmailnew', 'ffgmailnew', 'chromegmailnew']
+        },
+        your_target: {
+          src: ['dist/'+grunt.option('template')]
+        },
+      },
+
+      //- Send email through Mailgun
+      mailgun: {
+        mailer: {
+          options: {
+            key: 'key-bf71ba91ac2a39899ca8da2915d52a32',
+            sender: 'design@trackmaven.com',
+            recipient: 'trackmaven3.e2ff186.new@emailtests.com',
+            subject: 'TEST: This is a test email'
+          },
+          src: ['dist/'+grunt.option('template')]
+        }
+      },
+
   });
   grunt.loadNpmTasks('assemble');
   grunt.registerTask('default', ['sass','assemble','premailer','htmlmin','watch']);
+
+  // Test with Litmus
+  grunt.registerTask('test', ['litmus']);
+
+  // Use grunt send if you want to actually send the email to your inbox
+  grunt.registerTask('send', ['mailgun']);
 
 };
