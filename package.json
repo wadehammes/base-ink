@@ -2,18 +2,19 @@
   "name": "base-ink",
   "version": "1.0.0",
   "author": "Wade Hammes",
+  "description": "Grunt-driven email templating using Zurb Ink responsive email framework.",
   "repository": {
     "type": "git",
     "url": "git@github.com:wadehammes/base-ink.git"
   },
   "devDependencies": {
-    "grunt": "*",
-    "grunt-sass": "*",
-    "assemble": "*",
-    "grunt-mailgun": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-premailer": "0.2.5",
+    "grunt"                : "*",
+    "grunt-sass"           : "*",
+    "assemble"             : "*",
+    "grunt-mailgun"        : "*",
+    "grunt-contrib-watch"  : "*",
+    "grunt-premailer"      : "0.2.5",
     "grunt-contrib-htmlmin": "0.3.0",
-    "matchdep":  "*"
+    "matchdep"             :  "*"
   }
 }

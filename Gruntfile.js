@@ -55,7 +55,7 @@ module.exports = function(grunt) {
         }
       },
 
-      //- Watch for changes
+      //- Listen for changes on save
       watch: {
         files: ['src/css/scss/*','src/emails/*','src/layouts/*'],
         tasks: ['default']
@@ -63,8 +63,6 @@ module.exports = function(grunt) {
 
   });
   grunt.loadNpmTasks('assemble');
-
-  // Where we tell Grunt what to do when we type "grunt" into the terminal.
-  grunt.registerTask('default', ['sass','assemble','premailer', 'htmlmin', 'watch']);
+  grunt.registerTask('default', ['sass','assemble','premailer','htmlmin','watch']);
 
 };
