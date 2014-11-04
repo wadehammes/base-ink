@@ -14,3 +14,4 @@ grunt
 
 ####Copyright
 * Ink v1.0.5 - Copyright 2013 ZURB Inc
+* Based off of https://github.com/leemunroe/grunt-email-design

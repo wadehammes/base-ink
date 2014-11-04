@@ -49,9 +49,12 @@ module.exports = function(grunt) {
             removeComments: true,
             collapseWhitespace: true
           },
-          files: {
-            'dist/template.html': 'test/*.html'
-          }
+          files: [{
+            expand: true,
+            cwd: 'test/',
+            src: '**/*.html',
+            dest: 'dist/'
+          }]
         }
       },
 
