@@ -62,14 +62,14 @@ module.exports = function(grunt) {
       watch: {
         files: ['src/scss/*','src/emails/*','src/layouts/*'],
         tasks: ['default']
-      }
+      },
 
       //- Test via Litmus
       litmus: {
         options: {
-          username: 'design@trackmaven.com',
-          password: 'twopawsup',
-          url: 'https://trackmaven3.litmus.com',
+          username: '',
+          password: '',
+          url: '',
           clients: ['gmailnew', 'ffgmailnew', 'chromegmailnew']
         },
         your_target: {
@@ -81,9 +81,9 @@ module.exports = function(grunt) {
       mailgun: {
         mailer: {
           options: {
-            key: 'key-bf71ba91ac2a39899ca8da2915d52a32',
-            sender: 'design@trackmaven.com',
-            recipient: 'trackmaven3.e2ff186.new@emailtests.com',
+            key: '',
+            sender: '',
+            recipient: '',
             subject: 'TEST: This is a test email'
           },
           src: ['dist/'+grunt.option('template')]
