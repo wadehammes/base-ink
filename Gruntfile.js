@@ -73,7 +73,7 @@ module.exports = function(grunt) {
           clients: ['gmailnew', 'ffgmailnew', 'chromegmailnew']
         },
         your_target: {
-          src: ['dist/'+grunt.option('template')]
+          src: ['dist/*']
         },
       },
 
@@ -86,7 +86,7 @@ module.exports = function(grunt) {
             recipient: '',
             subject: 'TEST: This is a test email'
           },
-          src: ['dist/'+grunt.option('template')]
+          src: ['dist/*']
         }
       },
 
