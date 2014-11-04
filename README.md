@@ -1,8 +1,8 @@
 #Base Ink
 Grunt-driven email templating using Zurb Ink responsive email framework.
 
-##TODO:
+####Use
 Instructions on use.
 
-##Copyright
+####Copyright
 * Ink v1.0.5 - Copyright 2013 ZURB Inc
