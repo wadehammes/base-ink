@@ -22,7 +22,7 @@ To use S3 for image management, first provide your credentials in the credential
 }
 ```
 
-and then also create a bucket in your S3 <b>with an img folder</b>, and provide that bucket name like so:
+and then also create a bucket in your S3 <b>with a src/ directory, and inside that an img/ directory</b>, and provide that bucket name like so:
 
 ```
 //- Put Images into an S3 Bucket
