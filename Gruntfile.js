@@ -3,6 +3,7 @@ module.exports = function(grunt) {
   require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
   grunt.initConfig({
       pkg: grunt.file.readJSON('package.json'),
+      creds: grunt.file.readJSON("credentials.json"),
 
       //- Compile Sass
       sass: {
@@ -68,9 +69,9 @@ module.exports = function(grunt) {
       mailgun: {
         mailer: {
           options: {
-            key: 'MAILGUN API KEY',
+            key: '<%= creds.mailgunAPIkey %>',
             sender: 'YOUR EMAIL',
-            recipient: 'LITMUS STATIC TEST ADDRESS', // To test with Litmus, add your Static Test Address found in your Account Settings.
+            recipient: '<%= creds.staticTestAddress %>', // To test with Litmus, add your Static Test Address found in your Account Settings.
             subject: 'TEST - ' + displayTime()
           },
           src: ['dist/*']
@@ -78,12 +79,11 @@ module.exports = function(grunt) {
       },
 
       //- Put Images into an S3 Bucket
-      aws: grunt.file.readJSON("credentials.json"),
       s3: {
         options: {
-          accessKeyId: "<%= aws.accessKeyId %>",
-          secretAccessKey: "<%= aws.secretAccessKey %>",
-          bucket: "emailtrackmaven"
+          accessKeyId: "<%= creds.accessKeyId %>",
+          secretAccessKey: "<%= creds.secretAccessKey %>",
+          bucket: "<%= creds.bucket %>"
         },
         build: {
           cwd: "",

@@ -17,27 +17,24 @@ To use S3 for image management, first provide your credentials in the credential
 
 ```
 {
-  "accessKeyId": "...",
-  "secretAccessKey": "..."
+  "accessKeyId"      : "PUBLIC ACCESS KEY HERE",
+  "secretAccessKey"  : "SECRET ACCESS KEY HERE",
+  "bucket"           : "...",
+  "mailgunAPIkey"    : "...",
+  "staticTestAddress": "..."
 }
 ```
 
-and then also create a bucket in your S3 <b>with a src/ directory, and inside that an img/ directory</b>, and provide that bucket name like so:
+and then also create a bucket in your S3 <b>with a src/ directory, and inside that an img/ directory</b>, and provide that bucket name in the credentials.json like so:
 
 ```
-//- Put Images into an S3 Bucket
-aws: grunt.file.readJSON("credentials.json"),
-s3: {
-  options: {
-    accessKeyId: "<%= aws.accessKeyId %>",
-    secretAccessKey: "<%= aws.secretAccessKey %>",
-    bucket: "YOUR BUCKET NAME"
-  },
-  build: {
-    cwd: "",
-    src: "src/img/*"
-  }
-},
+{
+  "accessKeyId"      : "...",
+  "secretAccessKey"  : "...",
+  "bucket"           : "BUCKET NAME HERE",
+  "mailgunAPIkey"    : "...",
+  "staticTestAddress": "..."
+}
 ```
 
 Then, in order to CDNify your templates, run:
@@ -51,27 +48,25 @@ To send with Mailgun, create an account at http://mailgun.com and get your API K
 key-XXXXXXXXXXXXXXXXXX
 ```
 
-If you want to send and auto-create a Litmus email test (http://litmus.com), create an account and in your account settings copy your <b>Static Test Address</b> and add it like so:
+If you want to send and auto-create a Litmus email test (http://litmus.com), create an account and in your account settings copy your <b>Static Test Address</b> and add it to the credentials.json:
 
 ```
 //- Send email through Mailgun
-mailgun: {
-  mailer: {
-    options: {
-      key: 'MAILGUN API KEY',
-      sender: 'YOUR EMAIL',
-      recipient: 'LITMUS STATIC TEST ADDRESS', // To test with Litmus, add your Static Test Address found in your Account Settings.
-      subject: 'TEST - ' + displayTime()
-    },
-    src: ['dist/*']
-  }
-},
+{
+  "accessKeyId"      : "...",
+  "secretAccessKey"  : "...",
+  "bucket"           : "...",
+  "mailgunAPIkey"    : "API KEY HERE",
+  "staticTestAddress": "LITMUS (OR OTHER) TEST EMAIL ADDRESS HERE"
+}
 ```
 
 Then to send a test email, run:
 ```
 grunt send
 ```
+
+<b>Note: if you plan to fork and use this in a repo, I suggest adding credentials.json to your .gitignore file in order to protect your access keys/privacy</b>
 
 ####Copyright
 * Ink v1.0.5 - Copyright 2013 ZURB Inc
