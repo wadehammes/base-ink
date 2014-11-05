@@ -71,7 +71,7 @@ mailgun: {
 Then to send a test email, run:
 ```
 grunt send
-'''
+```
 
 ####Copyright
 * Ink v1.0.5 - Copyright 2013 ZURB Inc
