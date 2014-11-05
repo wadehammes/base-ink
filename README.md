@@ -21,6 +21,7 @@ To use S3 for image management, first provide your credentials in the credential
   "secretAccessKey"  : "SECRET ACCESS KEY HERE",
   "bucket"           : "...",
   "mailgunAPIkey"    : "...",
+  "myEmailAddress"   : "...",
   "staticTestAddress": "..."
 }
 ```
@@ -33,6 +34,7 @@ and then also create a bucket in your S3 <b>with a src/ directory, and inside th
   "secretAccessKey"  : "...",
   "bucket"           : "BUCKET NAME HERE",
   "mailgunAPIkey"    : "...",
+  "myEmailAddress"   : "...",
   "staticTestAddress": "..."
 }
 ```
