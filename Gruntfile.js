@@ -86,7 +86,7 @@ module.exports = function(grunt) {
           bucket: "emailtrackmaven"
         },
         build: {
-          cwd: "/",
+          cwd: "",
           src: "src/img/*"
         }
       },

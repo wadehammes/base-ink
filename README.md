@@ -34,8 +34,8 @@ s3: {
     bucket: "YOUR BUCKET NAME"
   },
   build: {
-    cwd: "src/",
-    src: "img/*"
+    cwd: "",
+    src: "src/img/*"
   }
 },
 ```
