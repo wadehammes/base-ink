@@ -46,7 +46,10 @@ grunt cdnify
 ```
 
 ####Testing with Mailgun
-To send with Mailgun, create an account at http://mailgun.com and get your API Key (key-XXXXXXXXXXX).
+To send with Mailgun, create an account at http://mailgun.com and get your API Key:
+```
+key-XXXXXXXXXXXXXXXXXX
+```
 
 If you want to send and auto-create a Litmus email test (http://litmus.com), create an account and in your account settings copy your <b>Static Test Address</b> and add it like so:
 
