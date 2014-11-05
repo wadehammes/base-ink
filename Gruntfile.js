@@ -77,12 +77,44 @@ module.exports = function(grunt) {
         }
       },
 
+      //- Put Images into an S3 Bucket
+      aws: grunt.file.readJSON("credentials.json"),
+      s3: {
+        options: {
+          accessKeyId: "<%= aws.accessKeyId %>",
+          secretAccessKey: "<%= aws.secretAccessKey %>",
+          bucket: "emailtrackmaven"
+        },
+        build: {
+          cwd: "src/img/",
+          src: "**"
+        }
+      },
+
+      // CDN will replace local paths with your Cloud CDN path
+      cdn: {
+        options: {
+          cdn: 'https://s3.amazonaws.com/<%= s3.options.bucket %>/',
+          flatten: true,
+          supportedTypes: 'html'
+        },
+        dist: {
+          src: ['./dist/*.html']
+        }
+      }
+
   });
   grunt.loadNpmTasks('assemble');
   grunt.registerTask('default', ['sass','assemble','premailer','htmlmin','watch']);
 
+  // Create task that skips watch for CDN
+  grunt.registerTask('build', ['sass','assemble','premailer','htmlmin']);
+
   // Use grunt send if you want to actually send the email to your inbox
   grunt.registerTask('send', ['mailgun']);
+
+  // Upload images to our CDN on Rackspace Cloud Files
+  grunt.registerTask('cdnify', ['build','s3','cdn']);
 
 };
 
