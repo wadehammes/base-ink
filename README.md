@@ -58,12 +58,10 @@ If you want to send and auto-create a Litmus email test (http://litmus.com), cre
 mailgun: {
   mailer: {
     options: {
-      key: 'Your API Key (key-XXXXXXXXXXXX)',
-      sender: 'your@email.com',
-      // To test with Litmus, add your Static Test Address
-      // from Limus below, found in your Account Settings.
-      recipient: 'Add Static Test Address Here',
-      subject: 'TEST: This is a test email'
+      key: 'MAILGUN API KEY',
+      sender: 'YOUR EMAIL',
+      recipient: 'LITMUS STATIC TEST ADDRESS', // To test with Litmus, add your Static Test Address found in your Account Settings.
+      subject: 'TEST - ' + displayTime()
     },
     src: ['dist/*']
   }
