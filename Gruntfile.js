@@ -68,12 +68,10 @@ module.exports = function(grunt) {
       mailgun: {
         mailer: {
           options: {
-            key: '',
-            sender: '',
-            // To test with Litmus, add your Static Test Address
-            // from Limus below, found in your Account Settings.
-            recipient: '',
-            subject: 'TEST: This is a test email'
+            key: 'MAILGUN API KEY',
+            sender: 'YOUR EMAIL',
+            recipient: 'LITMUS STATIC TEST ADDRESS', // To test with Litmus, add your Static Test Address found in your Account Settings.
+            subject: 'TEST - ' + displayTime()
           },
           src: ['dist/*']
         }
@@ -87,3 +85,26 @@ module.exports = function(grunt) {
   grunt.registerTask('send', ['mailgun']);
 
 };
+
+function displayTime() {
+  var str = "";
+
+  var currentTime = new Date()
+  var hours = currentTime.getHours()
+  var minutes = currentTime.getMinutes()
+  var seconds = currentTime.getSeconds()
+
+  if (minutes < 10) {
+      minutes = "0" + minutes
+  }
+  if (seconds < 10) {
+      seconds = "0" + seconds
+  }
+  str += hours + ":" + minutes + ":" + seconds;
+  if(hours > 11){
+      str += "PM"
+  } else {
+      str += "AM"
+  }
+  return str;
+}
