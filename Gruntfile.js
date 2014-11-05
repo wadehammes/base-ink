@@ -70,7 +70,7 @@ module.exports = function(grunt) {
         mailer: {
           options: {
             key: '<%= creds.mailgunAPIkey %>',
-            sender: 'YOUR EMAIL',
+            sender: '<%= creds.myEmailAddress %>',
             recipient: '<%= creds.staticTestAddress %>', // To test with Litmus, add your Static Test Address found in your Account Settings.
             subject: 'TEST - ' + displayTime()
           },

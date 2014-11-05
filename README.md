@@ -48,7 +48,7 @@ To send with Mailgun, create an account at http://mailgun.com and get your API K
 key-XXXXXXXXXXXXXXXXXX
 ```
 
-If you want to send and auto-create a Litmus email test (http://litmus.com), create an account and in your account settings copy your <b>Static Test Address</b> and add it to the credentials.json:
+If you want to send and auto-create a Litmus email test (http://litmus.com), create an account and in your account settings copy your <b>Static Test Address</b> and add it to the credentials.json, along with your email (sent from):
 
 ```
 //- Send email through Mailgun
@@ -57,6 +57,7 @@ If you want to send and auto-create a Litmus email test (http://litmus.com), cre
   "secretAccessKey"  : "...",
   "bucket"           : "...",
   "mailgunAPIkey"    : "API KEY HERE",
+  "myEmailAddress"   : "MY EMAIL HERE",
   "staticTestAddress": "LITMUS (OR OTHER) TEST EMAIL ADDRESS HERE"
 }
 ```
